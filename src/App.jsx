@@ -16,7 +16,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [nextPrayer, setNextPrayer] = useState('');
   const [timeRemaining, setTimeRemaining] = useState('');
-  const [audio] = useState(new Audio('./assets/alert.mp3'));  // Audio alert file
+  const audio = new Audio('./assets/alert.mp3');  // Audio alert file
 
   const findCurrentPrayer = (times) => {
     const now = new Date();
