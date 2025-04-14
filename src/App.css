@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #333;
+}
+
+#times p {
+  font-size: 1.5em;
+  color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#times p strong {
+  margin-left: 10px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h2 {
+  margin-top: 20px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #fafafa; /* Green (#2ecc71) color when showing the next prayer */
+  background: #333;
+}
+
+p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #e74c3c; /* Red color for time remaining */
+}
+
+.alert {
+  color: red; /* Add special styling for when the alert triggers */
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+.highlight-current {
+  background-color: #a2ffb5;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.highlight-next {
+  background-color: #fff3b0;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
