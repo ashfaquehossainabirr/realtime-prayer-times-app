@@ -5,11 +5,13 @@ import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faClock, faLeaf, faWater, faMoon } from '@fortawesome/free-solid-svg-icons';
 
-const API_URL = 'https://api.aladhan.com/v1/timingsByCity';
+const API_URL = 'http://api.aladhan.com/v1/timingsByCity';
 const city = 'Dhaka';  // You can change this to any city
 const country = 'Bangladesh'; // Set your country here
 
 function App() {
+  const [currentTime, setCurrentTime] = useState(new Date());
+
   const [currentPrayer, setCurrentPrayer] = useState('');
 
   const [prayerTimes, setPrayerTimes] = useState({});
@@ -17,6 +19,32 @@ function App() {
   const [nextPrayer, setNextPrayer] = useState('');
   const [timeRemaining, setTimeRemaining] = useState('');
   const audio = new Audio('./audio/alert.mp3');  // Audio alert file
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000); // updates every second
+  
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatClockTime = (date) => {
+    let hours = date.getHours();
+    let minutes = date.getMinutes().toString().padStart(2, '0');
+    let seconds = date.getSeconds().toString().padStart(2, '0');
+
+    let is12HourFormat = true
+  
+    if (is12HourFormat) {
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12;
+      return `${hours}:${minutes}:${seconds} ${ampm}`;
+    }
+  
+    return `${hours.toString().padStart(2, '0')}:${minutes}:${seconds}`;
+  };
+  
+  
 
   const findCurrentPrayer = (times) => {
     const now = new Date();
@@ -135,7 +163,18 @@ function App() {
 
   return (
     <div className="App">
+          <div style={{ 
+            fontSize: '24px', 
+            textAlign: 'center', 
+            margin: '1em 0', 
+            fontFamily: 'monospace' 
+          }}>
+            🕒 {formatClockTime(currentTime)}
+    </div>
+
+
       <h1>Prayer Times</h1>
+      <hr/>
       <div id="times">
         {/* {['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'].map((prayer) => (
           <p
