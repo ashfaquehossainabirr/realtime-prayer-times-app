@@ -5,7 +5,7 @@ import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faClock, faLeaf, faWater, faMoon } from '@fortawesome/free-solid-svg-icons';
 
-const API_URL = 'http://api.aladhan.com/v1/timingsByCity';
+const API_URL = 'https://api.aladhan.com/v1/timingsByCity';
 const city = 'Dhaka';  // You can change this to any city
 const country = 'Bangladesh'; // Set your country here
 
