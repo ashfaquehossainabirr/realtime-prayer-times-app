@@ -5,7 +5,8 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #f4f4f4;
+  background: #EEAECA;
+  background: linear-gradient(320deg,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
 }
 
 .App {
